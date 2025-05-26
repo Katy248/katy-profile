@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'JetBrainsMonoNerdFont-Regular';
+  src: url('/JetBrainsMonoNerdFont-Regular.ttf')
+}
+
+* {
+  font-family: JetBrainsMonoNerdFont-Regular;
+}
+
+body {
+  @apply text-[#e0def4] bg-[#191724];
+}
