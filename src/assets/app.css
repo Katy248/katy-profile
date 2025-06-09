@@ -10,5 +10,5 @@
 }
 
 body {
-  @apply text-[#e0def4] bg-[#191724];
+  @apply text-[#e0def4] bg-[#191724] selection:bg-[#e0def4] selection:text-[#191724];
 }

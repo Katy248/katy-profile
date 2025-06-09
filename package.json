@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "release": "vite preview --host --port 80",
+    "release": "vite preview --host --port 1488",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix",

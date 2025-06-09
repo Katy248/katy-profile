@@ -1,5 +1,5 @@
 <script setup>
-import { TECHNOLOGIES, PROJECTS, LINKS } from '../data'
+import { TECHNOLOGIES, PROJECTS, LINKS, HISTORY } from '../data'
 </script>
 
 <template>
@@ -36,6 +36,24 @@ import { TECHNOLOGIES, PROJECTS, LINKS } from '../data'
           class="bg-[#26233a] px-1"
         >
           {{ technology.name }}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Key events</h2>
+      <div class="">
+        <div
+          v-for="hist in HISTORY"
+          :key="hist.date"
+          class="flex gap-2 justify-start items-start w-fit"
+        >
+          <div class="text-end min-w-40 max-w-1/2 text-[#f6c177] font-bold">
+            {{ hist.date }}
+          </div>
+          <div class="">
+            {{ hist.description }}
+          </div>
         </div>
       </div>
     </section>

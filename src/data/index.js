@@ -167,5 +167,6 @@ const PROJECTS = [
   },
 ]
 import { LINKS } from './links'
+import { HISTORY } from './history'
 
-export { TECHNOLOGIES, PROJECTS, LINKS }
+export { TECHNOLOGIES, PROJECTS, LINKS, HISTORY }
