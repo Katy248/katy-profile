@@ -1,5 +1,9 @@
 <script setup>
 import { TECHNOLOGIES, PROJECTS, LINKS, HISTORY } from '../data'
+import { ref } from 'vue'
+
+const techDropdownOpen = ref(false)
+const projectsDropdownOpen = ref(false)
 </script>
 
 <template>
@@ -19,30 +23,12 @@ import { TECHNOLOGIES, PROJECTS, LINKS, HISTORY } from '../data'
     </section>
 
     <section>
-      <h2>My links</h2>
-      <div class="flex flex-wrap gap-4">
-        <div v-for="link in LINKS" :key="link.name">
-          <a :href="link.url">[ {{ link.name }} ]</a>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Technologies that I use</h2>
-      <div class="flex flex-wrap gap-4">
-        <div
-          v-for="technology in TECHNOLOGIES"
-          :key="technology.id"
-          class="bg-[#26233a] px-1"
-        >
-          {{ technology.name }}
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Key events</h2>
+      <h2>For HR</h2>
       <div class="">
+        <div>
+          Среднее специальное образование по специальности Информационные
+          системы (Колледж Космического Машиностроения и Технологий)
+        </div>
         <div
           v-for="hist in HISTORY"
           :key="hist.date"
@@ -59,8 +45,43 @@ import { TECHNOLOGIES, PROJECTS, LINKS, HISTORY } from '../data'
     </section>
 
     <section>
-      <h2 class="">My projects</h2>
+      <button
+        class="cursor-pointer"
+        @click="techDropdownOpen = !techDropdownOpen"
+      >
+        <h2>
+          Technologies that I use
+          <span v-if="techDropdownOpen"></span>
+          <span v-else></span>
+
+          <span class="text-neutral-500"> (if you even care)</span>
+        </h2>
+      </button>
+      <div class="flex flex-wrap gap-4" v-if="techDropdownOpen">
+        <div
+          v-for="technology in TECHNOLOGIES"
+          :key="technology.id"
+          class="bg-[#26233a] px-1"
+        >
+          {{ technology.name }}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <button
+        @click="projectsDropdownOpen = !projectsDropdownOpen"
+        class="cursor-pointer"
+      >
+        <h2 class="">
+          My projects
+
+          <span v-if="projectsDropdownOpen"></span>
+          <span v-else></span>
+        </h2>
+      </button>
       <div
+        v-if="projectsDropdownOpen"
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
       >
         <div
@@ -100,6 +121,14 @@ import { TECHNOLOGIES, PROJECTS, LINKS, HISTORY } from '../data'
               >[ view  ]
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>My links</h2>
+      <div class="flex flex-wrap gap-4">
+        <div v-for="link in LINKS" :key="link.name">
+          <a :href="link.url">[ {{ link.name }} ]</a>
         </div>
       </div>
     </section>
